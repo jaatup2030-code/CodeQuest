@@ -6,3 +6,9 @@
 - Created initial repository for CodeQuest.
 - Added placeholder `README.md`, `proposal.md`, and `codequest.py`.
 
+
+
+
+
+(members; Atup, Cuevo, Escala)
+
