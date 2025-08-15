@@ -88,8 +88,8 @@ Suggested Teacher Action:
 - Conduct review activities for Functions and Conditionals.
 - Pair students strong in Loops with those struggling in related topics.
 
-Contributors
+### Contributors
 
-Atup
-Cuevo
-Escala
+- Atup
+- Cuevo
+- Escala
