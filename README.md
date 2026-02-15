@@ -1,75 +1,75 @@
 # HazardReady: Personalized Disaster Risk & Preparedness Planner
 
 ## Project Overview
-HazardReady is a user-friendly application designed to assist families in **preparing for natural hazards**, such as typhoons, floods, and earthquakes. The program generates a **personalized emergency plan** based on the user’s house type, location, family members, pets, and other relevant factors. The goal is to provide **practical and actionable guidance** that is easy to follow, even for students and families with no technical background.
+HazardReady is a **user-friendly web application** that helps families **prepare for natural hazards** such as typhoons, floods, earthquakes, landslides, and fires. The program generates a **personalized emergency plan** based on household factors, location, family composition, pets, and available resources. HazardReady provides **practical, actionable guidance** that is easy to follow, even for students and families with no technical background.
 
 ---
 
 ## Problem Statement
-Existing disaster preparedness guides are often **too generic**, making it difficult for families to adapt advice to their specific circumstances. This can result in households being underprepared during emergencies. HazardReady addresses this issue by **creating customized checklists and emergency plans** tailored to each user’s unique situation.
+Existing disaster preparedness guides are often **too generic**, leaving families **underprepared** during emergencies. HazardReady addresses this by creating **customized checklists and emergency plans** tailored to each user’s unique situation.
 
 ---
 
 ## Project Objectives
-The objectives of HazardReady are to:
+HazardReady aims to:
 1. Generate a **personalized emergency checklist** based on user inputs.  
-2. Calculate a **risk score** for natural hazards (low, moderate, high).  
+2. Identify **household-specific hazards** based on location and home conditions.  
 3. Provide a **family communication plan** and suggested evacuation strategies.  
-4. Assess the **readiness of the family’s go-bag**.  
-5. Offer **practical recommendations** to improve household safety.
+4. Assess **household resources**, including go-bag contents, vehicles, and utilities.  
+5. Offer **practical safety recommendations** to improve preparedness.  
 
 ---
 
-## Planned Features
+## Key Features
 - Personalized emergency checklist  
-- Risk scoring system for hazards  
+- Household hazard identification  
 - Family communication plan generator  
 - Go-bag readiness assessment  
-- Recommendations for improving safety at home
+- Resource evaluation (vehicles, electricity, water)  
+- Disaster-specific guidance (typhoon, earthquake, flood, fire, landslide)  
+- Printable emergency plan  
 
 ---
 
-## Planned Inputs and Outputs
+## Inputs
+- **Type of House:** Wood, Concrete, Mixed, Apartment, Lightweight Structure  
+- **Condition of Building:** Good, Average, Poor/Old  
+- **Location Type:** Flood-Prone, Coastal, Urban, Rural, Hillside, Near Fault Line  
+- **Number of Family Members**  
+- **Presence of Pets**  
+- **Presence of Elderly, Infants, or Persons with Disabilities (PWDs)**  
+- **Vehicle Available for Evacuation**  
+- **Access to Electricity and Water**  
+- **Optional Disaster Focus:** Typhoon, Earthquake, Flood, Fire, Landslide  
 
-### Inputs:
-- Type of house (wood, concrete, mixed)  
-- Location (near river, coastal, urban, flood-prone, etc.)  
-- Number of family members  
-- Presence of pets  
-- Presence of elderly, infants, or PWDs  
-- Current go-bag items (yes/no)
+---
 
-### Outputs:
-- Customized emergency checklist  
-- Risk level (low, moderate, high)  
-- Go-bag preparedness percentage  
-- Printable family emergency contact sheet  
-- Recommended evacuation strategy
+## Outputs
+- **Identified Risks** based on household and location  
+- **Customized Emergency Preparedness Plan** with actionable tips  
+- **Household Size** summary  
+- **Printable Emergency Plan**  
 
 ---
 
 ## Logic Plan
-1. **User Inputs**: Collected via text prompts or a simple web form.  
-2. **Risk Evaluation**: The system calculates a risk score using IF-ELSE logic based on house type, location, and family factors.  
-3. **Checklist Generation**: Recommended items, safety preparations, and family communication plan.  
-4. **Go-Bag Health Assessment**: Compare user inputs against an ideal go-bag checklist.  
-5. **Outputs**: Display risk score, customized checklist, go-bag readiness, and family plan.
-*A flowchart and pseudocode will be included in the project documentation.*
+1. **User Inputs:** Collected via web form.  
+2. **Risk Evaluation:** Calculates hazards based on house type, location, and household factors.  
+3. **Checklist Generation:** Recommends items, safety preparations, and family communication strategies.  
+4. **Resource Assessment:** Evaluates go-bag readiness, vehicles, and utilities.  
+5. **Outputs:** Displays hazards, emergency plan, and household info. Users can print the plan for reference.  
+
+*A flowchart and pseudocode can be included in the project documentation.*
 
 ---
 
 ## Website Screenshot
 
-Here’s a screenshot of the HazardReady interactive website:
-
-![My Website](websitescreenshot)
-
-
-
+![HazardReady Website](websitescreenshot)
 
 ---
 
 ## Contributors
-- Atup
-- Cuevo
+- Atup  
+- Cuevo  
 - Escala
