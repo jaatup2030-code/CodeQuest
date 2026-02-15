@@ -62,7 +62,8 @@ The objectives of HazardReady are to:
 
 Here’s a screenshot of the HazardReady interactive website:
 
-![Alt text](image.png)
+![My Website](images/website-screenshot.png)
+
 
 
 ---
