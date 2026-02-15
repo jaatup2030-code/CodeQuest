@@ -1,34 +1,50 @@
 START
-Prompt user for:
-    - House type
-    - Location
+
+Prompt user for the following inputs:
+    - House type (wood, concrete, mixed, apartment, lightweight)
+    - Building condition (good, average, poor)
+    - Location type (flood-prone, coastal, urban, rural, hillside, near fault line)
     - Number of family members
     - Pets (yes/no)
     - Elderly/infants/PWDs (yes/no)
-    - Go-bag items (yes/no)
+    - Vehicle available for evacuation (yes/no)
+    - Access to electricity and water (stable/limited)
+    - Optional: Specific disaster focus (typhoon, earthquake, flood, fire, landslide)
+    - Current go-bag items (yes/no)
 
-CALCULATE risk_score
-    IF house_type = "wood" AND location = "flood-prone"
-        risk_score = high
-    ELSE IF house_type = "mixed" AND location = "coastal"
-        risk_score = moderate
-    ELSE
-        risk_score = low
+CALCULATE hazard_list:
+    IF location = "flood-prone" THEN add "Flooding" to hazard_list
+    IF location = "coastal" THEN add "Storm surge and strong winds" to hazard_list
+    IF location = "hillside" THEN add "Landslides" to hazard_list
+    IF location = "near fault line" THEN add "Earthquakes" to hazard_list
+    IF house_type = "wood" OR house_type = "lightweight" THEN add "Fire hazards" to hazard_list
+    IF building_condition = "poor" THEN add "Structural instability" to hazard_list
 
-GENERATE checklist
-    Include recommended items based on risk_score and family profile
+CALCULATE risk_score:
+    - Based on number and severity of hazards
+    - Can be categorized as low, moderate, high
 
-CALCULATE go_bag_readiness
-    Compare user items to recommended items
-    Display percentage ready
+GENERATE emergency_checklist:
+    - Include recommended items based on hazard_list, risk_score, and family profile
+    - Include food, water, first aid, flashlights, important documents
+    - Add items for pets if applicable
+    - Add medicines/mobility support for elderly/infants/PWDs
+    - Include alternative solutions if vehicle unavailable or utilities limited
 
-GENERATE family communication plan
-    Include contacts, evacuation strategies, emergency notes
+CALCULATE go_bag_readiness:
+    - Compare user-reported items to recommended checklist
+    - Compute percentage ready
 
-DISPLAY outputs:
-    - Risk Score
-    - Checklist
-    - Go-bag readiness %
+GENERATE family_communication_plan:
+    - Include family contacts
+    - Suggested evacuation routes and meeting points
+    - Emergency notes
+
+DISPLAY outputs to user:
+    - Identified hazard_list
+    - Risk score
+    - Emergency checklist
+    - Go-bag readiness percentage
     - Family communication plan
 
 END
