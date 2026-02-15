@@ -83,6 +83,34 @@ We chose **client-side JavaScript** because it allows real-time personalized eme
 
 ---
 
+## Programming & Computing Ethics
+
+In developing HazardReady, our team followed ethical programming principles to ensure **safety, privacy, and accessibility**:
+
+1. **User Privacy**  
+   - No personal data is collected or stored.  
+   - All inputs and generated emergency plans run locally in the browser.
+
+2. **Accessibility and Inclusion**  
+   - Clear labels for all input fields.  
+   - High-contrast colors and readable fonts for users with visual impairments.  
+   - Interface designed to be understandable by users of all ages.
+
+3. **Intellectual Property and Crediting**  
+   - All code is original or properly cited if taken from tutorials or open-source resources.  
+   - References are listed in APA style where applicable.
+
+4. **Safety and Responsibility**  
+   - Recommendations focus on general disaster preparedness.  
+   - Users are reminded to follow official guidelines from disaster management authorities.
+
+This aligns with the **ACM Code of Ethics** (2018) principles, including respecting privacy, avoiding harm, and fostering accessibility (ACM, 2018).
+
+**Reference:**  
+Association for Computing Machinery. (2018). *ACM Code of Ethics and Professional Conduct*. https://www.acm.org/code-of-ethics
+
+---
+
 ## Inputs
 - **Type of House:** Wood, Concrete, Mixed, Apartment, Lightweight Structure  
 - **Condition of Building:** Good, Average, Poor/Old  
