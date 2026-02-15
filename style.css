@@ -1,25 +1,136 @@
+/* ==========================
+   HazardReady Styles
+=========================== */
+
+/* Root variables */
+:root {
+    --background: #f2f4f3;
+    --card: #ffffff;
+    --primary: #5f7c8a;
+    --primary-dark: #445a64;
+    --text: #2e2e2e;
+    --soft: #e6ebee;
+}
+
+/* Global box-sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Body styling */
 body {
-    font-family: Arial, sans-serif;
-    max-width: 600px;
-    margin: auto;
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e9f0f2, #f7f9f8);
+    color: var(--text);
+}
+
+/* Container for the page */
+.container {
+    max-width: 860px;
+    margin: 40px auto;
     padding: 20px;
 }
 
+/* Card for form and outputs */
+.card {
+    background: var(--card);
+    padding: 32px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Headings */
 h1 {
     text-align: center;
+    color: var(--primary-dark);
 }
 
-form {
-    margin-bottom: 20px;
+.subtitle {
+    text-align: center;
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 15px;
 }
 
+/* Form labels and inputs */
 label {
-    display: inline-block;
-    width: 200px;
+    font-weight: 600;
+    margin-top: 16px;
+    display: block;
 }
 
-#output {
-    background-color: #f0f0f0;
-    padding: 15px;
+select, input {
+    width: 100%;
+    padding: 11px;
+    margin-top: 6px;
     border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    font-size: 14px;
 }
+
+/* Buttons */
+button {
+    margin-top: 28px;
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: var(--primary);
+    color: white;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: var(--primary-dark);
+}
+
+.print-btn {
+    background: #6b8e23;
+    margin-top: 16px;
+}
+
+/* Output styling */
+.result {
+    margin-top: 32px;
+    padding: 26px;
+    background: var(--soft);
+    border-radius: 12px;
+}
+
+.result h3 {
+    margin-top: 0;
+    color: var(--primary-dark);
+}
+
+ul {
+    margin-left: 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 22px;
+    color: #777;
+    font-size: 14px;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+    }
+
+    button,
+    footer {
+        display: none;
+    }
+
+    .card {
+        box-shadow: none;
+    }
+}
+
