@@ -146,12 +146,13 @@ Association for Computing Machinery. (2018). *ACM Code of Ethics and Professiona
 ## Repository Structure
 All project files are in the main repository:
 HazardReady/
-├── index.html         # Main web page with forms and interactive emergency plan
-├── style.css          # Styling for the website (colors, layout, print styles)
-├── script.js          # JavaScript logic for hazard evaluation and plan generation
-├── README.md          # Project documentation (overview, methodology, ethics, etc.)
-├── websitescreenshot.png  # Screenshot of the website for documentation
-└── docs/              # (Optional) Extra documents like pseudocode, flowcharts, references
+├── index.html # Main web page with forms and interactive emergency plan
+├── style.css # Styling for the website
+├── script.js # JavaScript logic for hazard evaluation and plan generation
+├── README.md # Project documentation
+├── CHANGELOG.md # Record of project updates
+├── websitescreenshot.png # Screenshot of the website
+└── hazardready_pseudocode.txt # Pseudocode and logic plan
 
 ---
 
