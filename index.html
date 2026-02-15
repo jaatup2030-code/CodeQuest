@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HazardReady | Emergency Planner</title>
+
+<style>
+:root {
+  --background: #f2f4f3;
+  --card: #ffffff;
+  --primary: #5f7c8a;
+  --primary-dark: #445a64;
+  --text: #2e2e2e;
+  --soft: #e6ebee;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #e9f0f2, #f7f9f8);
+  color: var(--text);
+}
+
+.container {
+  max-width: 860px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.card {
+  background: var(--card);
+  padding: 32px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary-dark);
+}
+
+.subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+label {
+  font-weight: 600;
+  margin-top: 16px;
+  display: block;
+}
+
+select, input {
+  width: 100%;
+  padding: 11px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  font-size: 14px;
+}
+
+button {
+  margin-top: 28px;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+}
+
+button:hover {
+  background: var(--primary-dark);
+}
+
+.result {
+  margin-top: 32px;
+  padding: 26px;
+  background: var(--soft);
+  border-radius: 12px;
+}
+
+.result h3 {
+  margin-top: 0;
+  color: var(--primary-dark);
+}
+
+ul { margin-left: 20px; }
+
+.print-btn {
+  background: #6b8e23;
+  margin-top: 16px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 22px;
+  color: #777;
+  font-size: 14px;
+}
+
+/* PRINT */
+@media print {
+  body { background: white; }
+  button, footer { display: none; }
+  .card { box-shadow: none; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+
+    <h1>HazardReady</h1>
+    <p class="subtitle">
+      A personalized emergency preparedness plan based on household and environmental factors.
+    </p>
+
+    <!-- HOUSE INFO -->
+    <label>Type of House</label>
+    <select id="house">
+      <option value="wood">Wood</option>
+      <option value="concrete">Concrete</option>
+      <option value="mixed">Mixed Materials</option>
+      <option value="apartment">Apartment / Condominium</option>
+      <option value="light">Lightweight Structure</option>
+    </select>
+
+    <label>Condition of Building</label>
+    <select id="condition">
+      <option value="good">Good Condition</option>
+      <option value="average">Average Condition</option>
+      <option value="poor">Poor / Old Structure</option>
+    </select>
+
+    <!-- LOCATION -->
+    <label>Location Type</label>
+    <select id="location">
+      <option value="flood">Flood-Prone Area</option>
+      <option value="coastal">Coastal Area</option>
+      <option value="urban">Urban / City Area</option>
+      <option value="rural">Rural Area</option>
+      <option value="hillside">Hillside / Landslide-Prone Area</option>
+      <option value="nearFault">Near Fault Line</option>
+    </select>
+
+    <!-- FAMILY -->
+    <label>Number of Family Members</label>
+    <input type="number" id="family" min="1" value="1">
+
+    <label>Pets in Household</label>
+    <select id="pets">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <label>Elderly, Infants, or Persons with Disabilities</label>
+    <select id="special">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <!-- RESOURCES -->
+    <label>Vehicle Available for Evacuation</label>
+    <select id="vehicle">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <label>Access to Electricity and Water</label>
+    <select id="utilities">
+      <option value="stable">Stable Access</option>
+      <option value="limited">Limited / Unstable</option>
+    </select>
+
+    <!-- OPTIONAL -->
+    <label>Optional: Disaster Being Prepared For</label>
+    <select id="disaster">
+      <option value="">No specific disaster selected</option>
+      <option value="typhoon">Typhoon</option>
+      <option value="earthquake">Earthquake</option>
+      <option value="flood">Flood</option>
+      <option value="fire">Fire</option>
+      <option value="landslide">Landslide</option>
+    </select>
+
+    <button onclick="generatePlan()">Generate Emergency Plan</button>
+
+    <div id="result" class="result" style="display:none;"></div>
+
+    <button class="print-btn" onclick="window.print()" id="printBtn" style="display:none;">
+      Print Emergency Plan
+    </button>
+
+  </div>
+
+  <footer>
+    HazardReady • Disaster Preparedness Awareness Project
+  </footer>
+</div>
+<script>
+const houseEl = document.getElementById("house");
+const conditionEl = document.getElementById("condition");
+const locationEl = document.getElementById("location");
+const familyEl = document.getElementById("family");
+const petsEl = document.getElementById("pets");
+const specialEl = document.getElementById("special");
+const vehicleEl = document.getElementById("vehicle");
+const utilitiesEl = document.getElementById("utilities");
+const disasterEl = document.getElementById("disaster");
+const result = document.getElementById("result");
+const printBtn = document.getElementById("printBtn");
+
+function generatePlan() {
+  const hazards = [];
+  const tips = [];
+
+  if (locationEl.value === "flood") hazards.push("Flooding");
+  if (locationEl.value === "coastal") hazards.push("Storm surge and strong winds");
+  if (locationEl.value === "hillside") hazards.push("Landslides");
+  if (locationEl.value === "nearFault") hazards.push("Earthquakes");
+  if (houseEl.value === "wood" || houseEl.value === "light")
+    hazards.push("Fire hazards");
+  if (conditionEl.value === "poor")
+    hazards.push("Structural instability");
+
+  tips.push("Prepare enough food and drinking water for at least three days.");
+  tips.push("Store important documents in a waterproof container.");
+  tips.push("Prepare flashlights, batteries, and a first-aid kit.");
+  tips.push("Identify evacuation routes and meeting points.");
+
+  if (petsEl.value === "yes")
+    tips.push("Prepare food and supplies for pets.");
+  if (specialEl.value === "yes")
+    tips.push("Prepare medicines and mobility support.");
+  if (vehicleEl.value === "no")
+    tips.push("Coordinate evacuation with neighbors or authorities.");
+  if (utilitiesEl.value === "limited")
+    tips.push("Prepare alternative lighting and water storage.");
+  if (familyEl.value >= 4)
+    tips.push("Assign emergency responsibilities to family members.");
+
+  if (disasterEl.value !== "") {
+    tips.unshift(
+      "This emergency plan focuses on preparedness for " +
+      disasterEl.value + "."
+    );
+  }
+
+  result.innerHTML = `
+    <h3>Identified Risks</h3>
+    <ul>${hazards.map(h => `<li>${h}</li>`).join("")}</ul>
+
+    <h3>Emergency Preparedness Plan</h3>
+    <ul>${tips.map(t => `<li>${t}</li>`).join("")}</ul>
+
+    <p><strong>Household Size:</strong> ${familyEl.value}</p>
+  `;
+
+  result.style.display = "block";
+  printBtn.style.display = "block";
+}
+</script>
+
+
+</body>
+</html>
