@@ -149,6 +149,16 @@ Association for Computing Machinery. (2018). *ACM Code of Ethics and Professiona
 
 ---
 
+HazardReady/
+├── index.html         # Main web page with forms and interactive emergency plan
+├── style.css          # Styling for the website (colors, layout, print styles)
+├── script.js          # JavaScript logic for hazard evaluation and plan generation
+├── README.md          # Project documentation (overview, methodology, ethics, etc.)
+├── websitescreenshot.png  # Screenshot of the website for documentation
+└── docs/              # (Optional) Extra documents like pseudocode, flowcharts, references
+
+---
+
 ## Contributors
 - Atup  
 - Cuevo  
