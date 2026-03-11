@@ -222,17 +222,17 @@ const result = document.getElementById("result");
 const printBtn = document.getElementById("printBtn");
 
 function generatePlan() {
-  const hazards = [];
-  const tips = [];
+const hazards = new Set();
+const tips = [];
 
-  if (locationEl.value === "flood") hazards.push("Flooding");
-  if (locationEl.value === "coastal") hazards.push("Storm surge and strong winds");
-  if (locationEl.value === "hillside") hazards.push("Landslides");
-  if (locationEl.value === "nearFault") hazards.push("Earthquakes");
-  if (houseEl.value === "wood" || houseEl.value === "light")
-    hazards.push("Fire hazards");
-  if (conditionEl.value === "poor")
-    hazards.push("Structural instability");
+if (locationEl.value === "flood") hazards.add("Flooding");
+if (locationEl.value === "coastal") hazards.add("Storm surge and strong winds");
+if (locationEl.value === "hillside") hazards.add("Landslides");
+if (locationEl.value === "nearFault") hazards.add("Earthquakes");
+if (houseEl.value === "wood" || houseEl.value === "light")
+  hazards.add("Fire hazards");
+if (conditionEl.value === "poor")
+  hazards.add("Structural instability");
 
   tips.push("Prepare enough food and drinking water for at least three days.");
   tips.push("Store important documents in a waterproof container.");
@@ -257,15 +257,19 @@ function generatePlan() {
     );
   }
 
-  result.innerHTML = `
-    <h3>Identified Risks</h3>
-    <ul>${hazards.map(h => `<li>${h}</li>`).join("")}</ul>
+const hazardList = hazards.length
+  ? hazards.map(h => `<li>${h}</li>`).join("")
+  : "<li>No major risks identified based on the selections.</li>";
 
-    <h3>Emergency Preparedness Plan</h3>
-    <ul>${tips.map(t => `<li>${t}</li>`).join("")}</ul>
+result.innerHTML = `
+  <h3>Identified Risks</h3>
+  <ul>${hazardList}</ul>
 
-    <p><strong>Household Size:</strong> ${familyEl.value}</p>
-  `;
+  <h3>Emergency Preparedness Plan</h3>
+  <ul>${tips.map(t => `<li>${t}</li>`).join("")}</ul>
+
+  <p><strong>Household Size:</strong> ${familyEl.value}</p>
+`;
 
   result.style.display = "block";
   printBtn.style.display = "block";
